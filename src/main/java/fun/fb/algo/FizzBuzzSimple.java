@@ -1,9 +1,9 @@
 package fun.fb.algo;
 
 /**
- * This can run forever, the only limitation is the starting point if you specify
+ * This can run forever without any overflow
  */
-public class FizzBuzzSimple {
+public class FizzBuzzSimple implements FizzBuzz {
 
     // Keeping a bit map for FIZZ = 2^0  , BUZZ 2^1
     // Repeating pattern for FIZZ BUZZ
@@ -19,6 +19,11 @@ public class FizzBuzzSimple {
         this(0);
     }
 
+    /**
+     * Useful for testing to initialise for specific test case
+     *
+     * @param start
+     */
     public FizzBuzzSimple(int start) {
         if (start < 0) {
             throw new RuntimeException("Only natural numbers allowed (0, 1, 2,...)");
@@ -27,11 +32,11 @@ public class FizzBuzzSimple {
         counter = start % 15;
     }
 
+    @Override
     public byte next() {
 //        return fbPattern[counter.getAndUpdate((i) -> i == 14 ? 0 : i + 1)];
         byte ret = fbPattern[counter];
         counter = counter == 14 ? 0 : counter + 1;
         return ret;
     }
-
 }

@@ -4,7 +4,7 @@ public class DecimalCounter {
 
     // Starting with 8 digits but this can be changed
     // Theoretical limit of number of decimal digits is 2^31 - 1 (max array size on java)
-    byte[] decimalCounter = new byte[8];
+    private final byte[] decimalCounter = new byte[8];
 
     /**
      * Default starts at 0
@@ -18,13 +18,9 @@ public class DecimalCounter {
             throw new RuntimeException("Only whole numbers allowed (0, 1, 2, 3...)");
         }
         int i = 0;
-        while (start / 10 != 0) {
-//            if (start / 10 != 0) {
+        do {
             decimalCounter[i++] = (byte) (start % 10);
-            start = start / 10;
-//            }
-        }
-        decimalCounter[i] = (byte) (start % 10);
+        } while ((start = start / 10) != 0);
     }
 
     /**
@@ -45,6 +41,12 @@ public class DecimalCounter {
         throw new RuntimeException("Overflow! Please increase the array length of decimalCounter");
     }
 
+    /**
+     * Returns the digit at the specified index
+     *
+     * @param index
+     * @return
+     */
     public byte get(int index) {
         return decimalCounter[index];
     }

@@ -2,7 +2,7 @@ package fun.fb.algo;
 
 import fun.fb.DecimalCounter;
 
-public class FizzBuzzWithDigitCheck {
+public class FizzBuzzWithDigitCheck implements FizzBuzz {
 
     private final DecimalCounter decimalCounter;
     private int currentMax3Index = -1;
@@ -12,7 +12,12 @@ public class FizzBuzzWithDigitCheck {
         decimalCounter = new DecimalCounter();
     }
 
-    public FizzBuzzWithDigitCheck(int start) {
+    /**
+     * Useful for testing to initialise for specific test case
+     *
+     * @param start
+     */
+    FizzBuzzWithDigitCheck(int start) {
         decimalCounter = new DecimalCounter(start);
         int i = 0;
         do {
@@ -25,6 +30,13 @@ public class FizzBuzzWithDigitCheck {
         } while ((start = start / 10) != 0);
     }
 
+    /**
+     * Checks the most significant digit changed in the counter.
+     * As that is sufficient to tell us if there is a 3 or 5 in the counter
+     *
+     * @return
+     */
+    @Override
     public byte next() {
         int i = decimalCounter.increment();
         byte fizzType = 0;

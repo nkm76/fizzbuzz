@@ -12,7 +12,7 @@ public class FizzBuzzWithDigitCheckTest {
 
     @Test
     public void testTo15() {
-        final FizzBuzzWithDigitCheck fbWithDigitCheck = new FizzBuzzWithDigitCheck(0);
+        final FizzBuzzWithDigitCheck fbWithDigitCheck = new FizzBuzzWithDigitCheck();
         final byte[] expected = {0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2};
         final byte[] actual = new byte[15];
         for (int i = 0; i < 15; i++) {

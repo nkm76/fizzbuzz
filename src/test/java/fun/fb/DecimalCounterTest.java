@@ -18,7 +18,7 @@ public class DecimalCounterTest {
 
     @Test
     public void testIncrement() {
-        final DecimalCounter counter = new DecimalCounter(0);
+        final DecimalCounter counter = new DecimalCounter();
         for (int i = 1; i < 100; i++) {
             counter.increment();
             Assert.assertEquals(Integer.valueOf(i), Integer.valueOf(counter.toString()));
@@ -27,7 +27,7 @@ public class DecimalCounterTest {
 
     @Test
     public void testIncrementReturn0() {
-        final DecimalCounter counter = new DecimalCounter(0);
+        final DecimalCounter counter = new DecimalCounter();
         Assert.assertEquals(0, counter.increment());
     }
 
