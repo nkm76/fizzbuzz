@@ -9,7 +9,7 @@ public interface FizzBuzz {
     byte next();
 
     default Optional<String> translate(byte val) {
-        return val > 1 && val < 4 ? Optional.of(TRANSLATE[val]) : Optional.empty();
+        return val > 0 && val < 4 ? Optional.of(TRANSLATE[val]) : Optional.empty();
     }
 
 }
